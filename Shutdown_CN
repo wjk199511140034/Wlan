@@ -1,0 +1,52 @@
+@echo off 
+echo 请输入你要选择执行的操作，输入e退出
+echo 输入1设置自动关机
+echo 输入2取消自动关机
+:choice 
+set /p n=输入你的选择操作:
+if %n%==1 goto 1
+if %n%==2 goto 2
+if %n%==e (exit) else (goto 0)
+
+:0
+cls
+echo 请输入你要选择执行的操作，输入e退出
+echo 输入1设置自动关机
+echo 输入2取消自动关机
+echo.
+echo ---------------操作结果--------------
+echo 输入命令不存在
+echo.
+echo.
+goto choice
+
+:1
+cls
+echo 请输入你要选择执行的操作，输入e退出
+echo 输入1设置自动关机
+echo 输入2取消自动关机
+echo.
+echo ---------------操作结果--------------
+set /p timem=请输入时间(分钟)
+set /a times=%timem%*60
+if %times% lss 60 (
+echo 你输入的是%timem%
+echo 必须输入大于1的整数) else (
+shutdown -s -t %times%
+echo 电脑将会在%timem%分钟后关闭)
+echo.
+echo.
+goto choice
+
+:2
+cls
+echo 请输入你要选择执行的操作，输入e退出
+echo 输入1设置自动关机
+echo 输入2取消自动关机
+echo.
+echo ---------------操作结果--------------
+shutdown -a
+echo 关机计划已被取消
+echo.
+echo.
+goto choice
