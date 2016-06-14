@@ -1,0 +1,52 @@
+@echo off 
+echo Please choose one task you want to do，enter e close
+echo Enter 1 set auto shutdown time
+echo Enter 2 cancel auto shutdown
+:choice 
+set /p n=Please enter your choose:
+if %n%==1 goto 1
+if %n%==2 goto 2
+if %n%==e (exit) else (goto 0)
+
+:0
+cls
+echo Please choose one task you want to do，enter e close
+echo Enter 1 set auto shutdown time
+echo Enter 2 cancel auto shutdown
+echo.
+echo ---------------------resault------------------------
+echo Error! Command does not exist
+echo.
+echo.
+goto choice
+
+:1
+cls
+echo Please choose one task you want to do，enter e close
+echo Enter 1 set auto shutdown time
+echo Enter 2 cancel auto shutdown
+echo.
+echo ---------------------resault------------------------
+set /p timem=Please enter time(minute)
+set /a times=%timem%*60
+if %times% lss 60 (
+echo Error! Input value must be an integer greater than 1
+echo You entered is %timem%,not matched) else (
+shutdown -s -t %times%
+echo You computer will shutdown at %timem% minutes later)
+echo.
+echo.
+goto choice
+
+:2
+cls
+echo Please choose one task you want to do，enter e close
+echo Enter 1 set auto shutdown time
+echo Enter 2 cancel auto shutdown
+echo.
+echo ---------------------resault------------------------
+shutdown -a
+echo Auto shutdown has been cancelled
+echo.
+echo.
+goto choice
