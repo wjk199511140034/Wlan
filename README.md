@@ -1,6 +1,6 @@
 # Wlan
 
-Wlan_EN_X86.exe 是32位英文版本开启wlan程序(包含Shutdown)
+Wlan_EN_X86.exe 是32位英文版本开启wlan程序(包含Shutdown)</br>
 Wlan_EN_X64.exe 是64位英文版本开启wlan程序(包含Shutdown)
 Wlan_CN_X86.exe 是32位中文版本开启wlan程序(包含Shutdown)
 Wlan_CN_X64.exe 是64位中文版本开启wlan程序(包含Shutdown)
