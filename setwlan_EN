@@ -1,0 +1,41 @@
+@echo off 
+:choice 
+echo Please choose one task you want to do，enter e close
+echo Enter 1 active wlan
+echo Enter 2 deactive wlan
+echo Enter 3 check current status
+set /p n=Please enter your choose
+
+if "%n%"=="1" goto 1
+if "%n%"=="2" goto 2
+if "%n%"=="3" goto 3
+if "%n%"=="e" (exit) else (goto 0)
+
+:0
+echo Error! Command does not exist
+echo ------------------------------------------------------------------- 
+echo.
+echo.
+goto choice
+
+:1
+netsh wlan set hostednetwork mode=allow ssid=AMebius key=123456780
+netsh wlan star hostednetwork
+echo ------------------------------------------------------------------- 
+echo.
+echo.
+goto choice
+
+:2
+netsh wlan set hostednetwork mode=disallow
+echo ------------------------------------------------------------------- 
+echo.
+echo.
+goto choice
+
+:3
+netsh wlan show hostednetwork
+echo ------------------------------------------------------------------- 
+echo.
+echo.
+goto choice
