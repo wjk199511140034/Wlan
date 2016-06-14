@@ -1,0 +1,120 @@
+@echo off 
+echo Please choose one task you want to do,enter e close
+echo Enter 1 active wlan
+echo Enter 2 deactive wlan
+echo Enter 3 check current waln status
+echo Enter 4 set auto shutdown time
+echo Enter 5 cancel auto shutdown
+
+:choice 
+set /p n=Please enter your choose:
+if %n%==1 goto 1
+if %n%==2 goto 2
+if %n%==3 goto 3
+if %n%==4 goto 4
+if %n%==5 goto 5
+if %n%==e (exit) else (goto 0)
+
+:0
+cls
+echo Please choose one task you want to do,enter e close
+echo Enter 1 active wlan
+echo Enter 2 deactive wlan
+echo Enter 3 check current waln status
+echo Enter 4 set auto shutdown time
+echo Enter 5 cancel auto shutdown
+echo.
+echo ---------------------resault------------------------
+echo Error! Command does not exist
+echo.
+echo.
+goto choice
+
+
+:1
+cls
+echo Please choose one task you want to do,enter e close
+echo Enter 1 active wlan
+echo Enter 2 deactive wlan
+echo Enter 3 check current waln status
+echo Enter 4 set auto shutdown time
+echo Enter 5 cancel auto shutdown
+echo.
+echo ---------------------resault------------------------
+set name=AMebius
+set pw=123456780
+set /p name=Please enter you ssid(default AMebius)
+set /p pw=Please enter you password(default 123456780)
+netsh wlan set hostednetwork mode=allow ssid=%name% key=%pw%
+netsh wlan star hostednetwork
+echo You wlan has been set,name is %name%,password is %pw%
+echo.
+echo.
+goto choice
+
+:2
+cls
+echo Please choose one task you want to do,enter e close
+echo Enter 1 active wlan
+echo Enter 2 deactive wlan
+echo Enter 3 check current waln status
+echo Enter 4 set auto shutdown time
+echo Enter 5 cancel auto shutdown
+echo.
+echo ---------------------resault------------------------
+netsh wlan set hostednetwork mode=disallow
+echo.
+echo.
+goto choice
+
+:3
+cls
+echo Please choose one task you want to do,enter e close
+echo Enter 1 active wlan
+echo Enter 2 deactive wlan
+echo Enter 3 check current waln status
+echo Enter 4 set auto shutdown time
+echo Enter 5 cancel auto shutdown
+echo.
+echo ---------------------resault------------------------
+netsh wlan show hostednetwork
+echo.
+echo.
+goto choice
+
+:4
+cls
+echo Please choose one task you want to do,enter e close
+echo Enter 1 active wlan
+echo Enter 2 deactive wlan
+echo Enter 3 check current waln status
+echo Enter 4 set auto shutdown time
+echo Enter 5 cancel auto shutdown
+echo.
+echo ---------------------resault------------------------
+set /p timem=Please enter time(minute)
+set /a times=%timem%*60
+if %times% lss 60 (
+echo Error! Input value must be an integer greater than 1
+echo You entered is %timem%,not matched) else (
+shutdown -s -t %times%
+echo You computer will shutdown at %timem% minutes later)
+echo.
+echo.
+goto choice
+
+:5
+cls
+echo Please choose one task you want to do,enter e close
+echo Enter 1 active wlan
+echo Enter 2 deactive wlan
+echo Enter 3 check current waln status
+echo Enter 4 set auto shutdown time
+echo Enter 5 cancel auto shutdown
+echo.
+echo ---------------------resault------------------------
+shutdown -a
+echo Auto shutdown has been cancelled
+echo.
+echo.
+goto choice
